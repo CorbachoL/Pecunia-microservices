@@ -1,0 +1,6 @@
+FROM maven:3.6.3-openjdk-8
+
+WORKDIR /home/compiler
+
+CMD [ "./devops/entrypoint_build.sh" ]
+ENTRYPOINT ["sh"]

@@ -1,0 +1,10 @@
+FROM openjdk:8-jre
+
+COPY target/pecunia-login.jar pecunia-login.jar
+
+#RUN apt-get update 
+#RUN apt-get install -y netcat
+ADD devops/entrypoint_run.sh entrypoint.sh
+
+CMD [ "entrypoint.sh" ]
+ENTRYPOINT ["sh"]

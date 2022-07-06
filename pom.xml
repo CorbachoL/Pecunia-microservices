@@ -1,0 +1,57 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+
+	<groupId>es.corduba.pecunia</groupId>
+	<artifactId>pecunia-microservices</artifactId>
+	<version>0.0.1</version>
+	<packaging>pom</packaging>
+	<name>pecunia-microservices</name>
+
+	<!-- <properties>
+		<java.version>1.8</java.version>
+		
+		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
+		<spring-boot.version>2.2.6.RELEASE</spring-boot.version>
+		
+		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
+		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
+		<maven-compiler-plugin.configuration>1.8</maven-compiler-plugin.configuration>
+	</properties>-->
+
+	<modules>
+		<module>pecunia-api-gateway</module>
+		<module>pecunia-discover</module>
+		<module>pecunia-security</module>
+		<module>pecunia-config</module>
+		<module>pecunia-login</module>
+	</modules>
+
+	<!-- <build>
+		<plugins>
+			<plugin>
+				<groupId>org.apache.maven.plugins</groupId>
+				<artifactId>maven-compiler-plugin</artifactId>
+				<configuration>
+					<source>${maven-compiler-plugin.configuration}</source>
+					<target>${maven-compiler-plugin.configuration}</target>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+			</plugin>
+		</plugins>
+		<pluginManagement>
+			<plugins>
+				<plugin>
+					<groupId>org.apache.maven.plugins</groupId>
+					<artifactId>maven-compiler-plugin</artifactId>
+					<version>${maven-compiler-plugin.version}</version>
+				</plugin>
+			</plugins>
+		</pluginManagement>
+	</build>-->
+
+</project>

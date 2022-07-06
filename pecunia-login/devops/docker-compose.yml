@@ -1,0 +1,10 @@
+  pecunia-login:
+    build:
+      context: .
+      dockerfile: ./devops/Dockerfile
+    image: pecunia-login
+    depends_on:
+    - netflix-config
+    - mysql-db
+    <<: *spring-config
+    container_name: pecunia-login
