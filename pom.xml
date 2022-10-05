@@ -9,7 +9,14 @@
 	<packaging>pom</packaging>
 	<name>pecunia-microservices</name>
 
-	<!-- <properties>
+	<parent>
+		<groupId>org.springframework.boot</groupId>
+		<artifactId>spring-boot-starter-parent</artifactId>
+		<version>2.2.6.RELEASE</version>
+		<relativePath />
+	</parent>
+
+	<properties>
 		<java.version>1.8</java.version>
 		
 		<spring-cloud.version>Hoxton.SR8</spring-cloud.version>
@@ -18,17 +25,17 @@
 		<maven-jar-plugin.version>3.1.1</maven-jar-plugin.version>
 		<maven-compiler-plugin.version>3.8.0</maven-compiler-plugin.version>
 		<maven-compiler-plugin.configuration>1.8</maven-compiler-plugin.configuration>
-	</properties>-->
+	</properties>
 
 	<modules>
-		<module>pecunia-api-gateway</module>
-		<module>pecunia-discover</module>
-		<module>pecunia-security</module>
 		<module>pecunia-config</module>
-		<module>pecunia-login</module>
+		<module>pecunia-discover</module>
+		<module>pecunia-api-gateway</module>
+		<!-- <module>pecunia-security</module>
+		<module>pecunia-login</module>-->
 	</modules>
 
-	<!-- <build>
+	<build>
 		<plugins>
 			<plugin>
 				<groupId>org.apache.maven.plugins</groupId>
@@ -52,6 +59,6 @@
 				</plugin>
 			</plugins>
 		</pluginManagement>
-	</build>-->
+	</build>
 
 </project>

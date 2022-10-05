@@ -1,0 +1,58 @@
+version: "3.4"
+
+x-database-config-data:
+  &mysql-connection-data
+    environment:
+        MYSQL_USER: "user"
+        MYSQL_PASSWORD: "password"
+        MYSQL_DATABASE: "db_pecunia_app"
+        MYSQL_ROOT_PASSWORD: root
+
+x-database-user-data:
+  &mongo-connection-data
+    environment:
+        MONGO_INITDB_ROOT_USERNAME: root
+        MONGO_INITDB_ROOT_PASSWORD: root
+        MONGO_INITDB_DATABASE: "db_pecunia_app_user"
+        MONGODB_USERNAME: "user"
+        MONGODB_PASSWORD: "password"
+
+x-config-server:
+  &spring-config
+    environment:
+    - SPRING_CLOUD_CONFIG_URI=http://pecunia-config:8012
+
+services:
+  pecunia-config:
+    build:
+      context: ./pecunia-config
+      dockerfile: ./Dockerfile
+    image: pecunia-config
+    ports:
+    - 8012:8012
+    container_name: pecunia-config
+
+  pecunia-discover:
+    build:
+      context: ./pecunia-discover
+      dockerfile: ./Dockerfile
+    image: pecunia-discover
+    ports:
+    - 8010:8010
+    <<: *spring-config
+    depends_on:
+    - pecunia-config
+    container_name: pecunia-discover
+
+  pecunia-api-gateway:
+    build:
+      context: ./pecunia-api-gateway
+      dockerfile: ./Dockerfile
+    image: pecunia-api-gateway
+    ports:
+    - 8011:8011
+    <<: *spring-config
+    depends_on:
+    - pecunia-discover
+    - pecunia-config
+    container_name: pecunia-api-gateway

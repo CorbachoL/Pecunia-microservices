@@ -4,10 +4,9 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<parent>
-		<groupId>org.springframework.boot</groupId>
-		<artifactId>spring-boot-starter-parent</artifactId>
-		<version>2.2.6.RELEASE</version>
-		<relativePath />
+		<groupId>es.corduba.pecunia</groupId>
+		<artifactId>pecunia-microservices</artifactId>
+		<version>0.0.1</version>
 	</parent>
 
 	<artifactId>pecunia-config</artifactId>
@@ -29,13 +28,8 @@
 	<dependencies>
 		<!-- SPRING BOOT DEPENDENCIES -->
 		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-web</artifactId>
-			<version>${spring-boot.version}</version>
-		</dependency>
-		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-config</artifactId>
+			<artifactId>spring-cloud-config-server</artifactId>
 			<version>${spring-boot.version}</version>
 		</dependency>
 		<dependency>
@@ -44,18 +38,8 @@
 			<version>${spring-boot.version}</version>
 			<scope>test</scope>
 		</dependency>
-	</dependencies>
 
-    <build>
-		<finalName>${artifactId}</finalName>
-        <defaultGoal>spring-boot:run</defaultGoal>
-        <plugins>
-            <plugin>
-                <groupId>org.springframework.boot</groupId>
-                <artifactId>spring-boot-maven-plugin</artifactId>
-            </plugin>
-        </plugins>
-    </build>
+	</dependencies>
 
 	<!-- <dependencyManagement>
 		<dependencies>
